@@ -17,6 +17,7 @@ configs:
 
 pacman_packages:
   - zsh
+  - terminator
   - jq
   - yay
   - bash-completion
