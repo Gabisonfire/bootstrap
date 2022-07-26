@@ -1,6 +1,7 @@
 #!/bin/bash
 cd ~/Documents
-sudo pacman -S --noconfirm ansible git vault
+sudo pacman -S --noconfirm ansible git vault python pip
+pip install hvac
 git clone https://github.com/Gabisonfire/bootstrap.git
 cd bootstrap
 ansible-galaxy collection install -r collections/requirements.yml
