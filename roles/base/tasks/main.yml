@@ -1,0 +1,45 @@
+- name: Installing PACMAN required packages
+  become: true
+  community.general.pacman:
+    name: "{{ pacman_packages }}"
+    update_cache: true
+
+- name: Installing AUR required packages
+  become: true
+  kewlfft.aur.aur:
+    name: "{{ aur_packages }}"
+    update_cache: true
+
+- name: Create ssh directory if it does not exist
+  ansible.builtin.file:
+    path: "/home/{{ linux_user }}/.ssh"
+    state: directory
+    mode: '0700'
+
+- name: Write ssh/github key
+  ansible.builtin.copy:
+    content: "{{ lookup('hashi_vault', 'secret=kv/data/gab-ssh-key:key') }}"
+    dest: "/home/{{ linux_user }}/.ssh/id_rsa"
+    owner: "{{ linux_user }}"
+    group: "{{ linux_user }}"
+    mode: '0400'
+
+- name: Add self to docker group
+  become: true
+  ansible.builtin.user:
+    name: "{{ linux_user }}"
+    groups: docker
+    append: true
+
+- name: Get oh-my-zsh
+  ansible.builtin.get_url:
+    url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/ohmyzsh.sh
+    mode: '+x'
+  tags: ohmyzsh
+
+- name: Install oh-my-zsh
+  ansible.builtin.script:
+    cmd: /tmp/ohmyzsh.sh
+    creates: ~/.oh-my-zsh
+  tags: ohmyzsh

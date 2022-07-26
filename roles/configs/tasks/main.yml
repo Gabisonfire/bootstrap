@@ -1,0 +1,26 @@
+- name: Clone config repo
+  ansible.builtin.git:
+    repo: "{{ config_repo }}"
+    dest: "{{ config_repo_dest }}"
+    key_file: "/home/{{ linux_user }}/.ssh/id_rsa"
+    version: "master"
+  tags: git
+
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: "{{ config_repo_dest }}/{{ item.src }}"
+    dest: "{{ item.dst }}"
+    owner: "{{ linux_user }}"
+    group: "{{ linux_user }}"
+    state: link
+    force: true
+  with_items:
+    - "{{ configs }}"
+  tags: links
+
+- name: Restore Cinnamon's config
+  ansible.builtin.shell:
+    cmd: dconf load /org/cinnamon/ < "{{ config_repo_dest }}"/cinnamon
+  when: cinnamon
+  tags: cinnamon
+

@@ -1,0 +1,11 @@
+- name: Base
+  environment:
+    VAULT_ADDR: "https://vault.k8s.luna.net"
+    VAULT_SKIP_VERIFY: true
+  hosts:
+    - localhost
+  connection: local
+  roles:
+    - base
+    - mounts
+    - configs

@@ -1,0 +1,4 @@
+# dconf dump /org/cinnamon/ > config_repo_dest/cinnamon
+
+
+#  git commit & push
