@@ -1,6 +1,6 @@
 # Gab's configs
 ## Auto
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Gabisonfire/bootstrap/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Gabisonfire/bootstrap/master/install.sh)"
 
 ## Manual
 1. Clone this

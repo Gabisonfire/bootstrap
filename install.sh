@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ~/Documents
-pacman -S --noconfirm ansible git vault
+sudo pacman -S --noconfirm ansible git vault
 git clone https://github.com/Gabisonfire/bootstrap.git
 cd bootstrap
 ansible-galaxy collection install -r collections/requirements.yml
