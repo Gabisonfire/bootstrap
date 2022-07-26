@@ -5,7 +5,6 @@
     update_cache: true
 
 - name: Installing AUR required packages
-  become: true
   kewlfft.aur.aur:
     name: "{{ aur_packages }}"
     update_cache: true
