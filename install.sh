@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 cd ~/Documents
-sudo pacman -S --noconfirm ansible git vault python-pip
+sudo pacman -S --needed --noconfirm ansible git vault python-pip
 pip install hvac
 git clone https://github.com/Gabisonfire/bootstrap.git
 cd bootstrap
