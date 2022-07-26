@@ -4,6 +4,7 @@
     dest: "{{ config_repo_dest }}"
     key_file: "/home/{{ linux_user }}/.ssh/id_rsa"
     version: "master"
+    accept_hostkey: true
   tags: git
 
 - name: Create a symbolic link
