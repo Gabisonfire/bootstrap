@@ -23,4 +23,3 @@
     cmd: dconf load /org/cinnamon/ < "{{ config_repo_dest }}"/cinnamon
   when: cinnamon
   tags: cinnamon
-
