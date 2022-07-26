@@ -5,7 +5,7 @@ config_repo_dest: "/home/{{ linux_user }}/Documents/configs"
 cinnamon: true
 
 create_dirs:
-  - "/home/{{ linux_user }}/.config/terminator/config"
+  - "/home/{{ linux_user }}/.config/terminator"
 
 # Sources are relative to the config_repo_dest (will be appended automatically)
 configs:

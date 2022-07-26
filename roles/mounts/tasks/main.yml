@@ -29,7 +29,7 @@
   ansible.posix.mount:
     src: //192.168.0.170/Z
     path: /mnt/data
-    opts: "credentials=/root/.secure,file_mode=0777,dir_mode=0777,sec=ntlmssp,vers=1.0,iocharset=utf8"
+    opts: "credentials=/root/.secure,file_mode=0777,dir_mode=0777,sec=ntlmssp,vers=1.0,iocharset=utf8,nofail"
     state: mounted
     fstype: cifs
 
@@ -47,7 +47,7 @@
   ansible.posix.mount:
     src: /dev/sda1
     path: /mnt/steam
-    opts: "defaults"
+    opts: "defaults,nofail"
     state: present
     fstype: xfs
     passno: "2"
