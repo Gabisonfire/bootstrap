@@ -1,5 +1,8 @@
 # Gab's configs
+## Auto
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Gabisonfire/bootstrap/master/install.sh)"
 
+## Manual
 1. Clone this
 2. `ansible-galaxy collection install -r requirements.yml`
 3. `export VAULT_SKIP_VERIFY=true`
