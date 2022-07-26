@@ -1,3 +1,10 @@
+- name: Create required directory
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ create_dirs }}"
+
 - name: Installing PACMAN required packages
   become: true
   community.general.pacman:
@@ -7,7 +14,7 @@
   retries: 3
   delay: 3
   register: result
-  until: result is not failed 
+  until: result is not failed
 
 - name: Installing AUR required packages
   kewlfft.aur.aur:
