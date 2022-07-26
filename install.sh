@@ -2,6 +2,7 @@
 cd ~/Documents
 git clone git@github.com:Gabisonfire/bootstrap.git
 cd bootstrap
+pacman -S ansible
 ansible-galaxy collection install -r requirements.yml
 export VAULT_SKIP_VERIFY=true
 export VAULT_ADDR=https://vault.k8s.luna.net
