@@ -29,7 +29,7 @@
   ansible.posix.mount:
     src: //192.168.0.170/Z
     path: /mnt/data
-    opts: "credentials=/root/.secure,file_mode=0777,dir_mode=0777,sec=ntlm,vers=1.0,iocharset=utf8"
+    opts: "credentials=/root/.secure,file_mode=0777,dir_mode=0777,sec=ntlmssp,vers=1.0,iocharset=utf8"
     state: mounted
     fstype: cifs
 
