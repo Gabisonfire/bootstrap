@@ -48,6 +48,6 @@
     src: /dev/sda1
     path: /mnt/steam
     opts: "defaults"
-    state: mounted
+    state: present
     fstype: xfs
     passno: "2"
