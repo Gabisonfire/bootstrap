@@ -1,14 +1,16 @@
 - name: Installing PACMAN required packages
   become: true
   community.general.pacman:
-    name: "{{ pacman_packages }}"
+    name: "{{ item }}"
     update_cache: true
+  loop: "{{ pacman_packages }}"
 
 - name: Installing AUR required packages
   kewlfft.aur.aur:
-    name: "{{ aur_packages }}"
+    name: "{{ item }}"
     update_cache: true
   ignore_errors: true
+  loop: "{{ aur_packages }}"
 
 - name: Create ssh directory if it does not exist
   ansible.builtin.file:
