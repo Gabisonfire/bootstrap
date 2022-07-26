@@ -4,6 +4,10 @@
     name: "{{ item }}"
     update_cache: true
   loop: "{{ pacman_packages }}"
+  retries: 3
+  delay: 3
+  register: result
+  until: result.rc == 0
 
 - name: Installing AUR required packages
   kewlfft.aur.aur:
