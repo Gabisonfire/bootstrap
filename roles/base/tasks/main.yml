@@ -7,7 +7,7 @@
   retries: 3
   delay: 3
   register: result
-  until: result.stderr == ""
+  until: result is not failed 
 
 - name: Installing AUR required packages
   kewlfft.aur.aur:
