@@ -9,11 +9,11 @@
 
 - name: Get cifs username from vault
   set_fact:
-    cifs_un: "{{ lookup('hashi_vault', 'secret=kv/data/cifs-mount-user:user') }}"
+    cifs_un: "{{ lookup('hashi_vault', 'secret=kv/data/cifs-mount:username') }}"
 
 - name: Get cifs pw from vault
   set_fact:
-    cifs_pw: "{{ lookup('hashi_vault', 'secret=kv/data/cifs-mount-pw:pw') }}"
+    cifs_pw: "{{ lookup('hashi_vault', 'secret=kv/data/cifs-mount:password') }}"
 
 - name: Write cifs credentials file
   become: true
