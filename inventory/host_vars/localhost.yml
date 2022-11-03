@@ -2,7 +2,7 @@
 linux_user: gabisonfire
 config_repo: git@github.com:Gabisonfire/configs.git
 config_repo_dest: "/home/{{ linux_user }}/Documents/configs"
-cinnamon: true
+cinnamon: false
 
 create_dirs:
   - "/home/{{ linux_user }}/.config/terminator"
@@ -48,7 +48,6 @@ pacman_packages:
   - nuget
   - obs-studio
   - numlockx
-  - parcellite
   - peek
   - remmina
   - tcpdump
@@ -60,6 +59,8 @@ pacman_packages:
   - docker
   - cifs-utils
   - nvidia
+  - docker-compose
+  - 
 
 aur_packages:
   - visual-studio-code-bin
@@ -72,3 +73,4 @@ aur_packages:
   - teamviewer
   - unityhub
   - virtualbox-ext-oracle
+  - vibrantlinux
