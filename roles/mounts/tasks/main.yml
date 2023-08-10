@@ -42,11 +42,21 @@
     state: directory
     mode: '0755'
 
-- name: Mount steam
+- name: Mount Steam
+  become: true
+  ansible.posix.mount:
+    src: /dev/nvme1n1p1
+    path: /mnt/steam
+    opts: "defaults,nofail"
+    state: present
+    fstype: xfs
+    passno: "2"
+
+- name: Mount extras
   become: true
   ansible.posix.mount:
     src: /dev/sda1
-    path: /mnt/steam
+    path: /mnt/extra
     opts: "defaults,nofail"
     state: present
     fstype: xfs

@@ -9,3 +9,80 @@
     - base
     - mounts
     - configs
+  vars:
+      vault_key_path: kv/data/gab-ssh-key:key
+      linux_user: gabisonfire
+      config_repo: git@github.com:Gabisonfire/configs.git
+      config_repo_dest: "/home/{{ linux_user }}/Documents/configs"
+      cinnamon: false
+
+      create_dirs:
+        - "/home/{{ linux_user }}/.config/terminator"
+
+      # Sources are relative to the config_repo_dest (will be appended automatically)
+      configs:
+        - src: .zshrc
+          dst: "/home/{{ linux_user }}/.zshrc"
+        - src: "Thunar"
+          dst: "/home/{{ linux_user }}/.config/Thunar"
+        - src: ssh-config
+          dst: "/home/{{ linux_user }}/.ssh/config"
+        - src: terminator.config
+          dst: "/home/{{ linux_user }}/.config/terminator/config"
+
+      pacman_packages:
+        - zsh
+        - terminator
+        - jq
+        - yay
+        - bash-completion
+        - discord
+        - dmidecode
+        - dotnet-runtime
+        - dotnet-sdk
+        - flameshot
+        - fzf
+        - gamemode
+        - base-devel
+        - gimp
+        - go
+        - helm
+        - htop
+        - iotop
+        - iperf
+        - kubectl
+        - kubectx
+        - mlocate
+        - ncdu
+        - nmap
+        - netcat
+        - npm
+        - nuget
+        - obs-studio
+        - numlockx
+        - peek
+        - remmina
+        - tcpdump
+        - virtualbox
+        - virtualbox-host-dkms
+        - vim
+        - wine
+        - wget
+        - docker
+        - cifs-utils
+        - nvidia
+        - docker-compose
+        - 
+
+      aur_packages:
+        - visual-studio-code-bin
+        - lutris
+        - bottles
+        - google-chrome
+        - itch
+        - razergenie
+        - remmina-plugin-rdesktop
+        - teamviewer
+        - unityhub
+        - virtualbox-ext-oracle
+        - vibrantlinux

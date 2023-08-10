@@ -1,0 +1,68 @@
+- name: Base
+  environment:
+    VAULT_ADDR: "https://vault.k8s.luna.net"
+    VAULT_SKIP_VERIFY: true
+  hosts:
+    - localhost
+  connection: local
+  roles:
+    - base
+    - mounts
+    - configs
+  vars:
+    vault_key_path: kv/data/work_deploy_key:ssh-key
+    linux_user: glaberge
+    config_repo: git@github.com:Gabisonfire/configs.git
+    config_repo_dest: "/home/{{ linux_user }}/Documents/configs"
+    cinnamon: false
+
+    create_dirs:
+      - "/home/{{ linux_user }}/.config/terminator"
+
+    # Sources are relative to the config_repo_dest (will be appended automatically)
+    configs:
+      - src: .zshrc
+        dst: "/home/{{ linux_user }}/.zshrc"
+      - src: terminator.config
+        dst: "/home/{{ linux_user }}/.config/terminator/config"
+
+    pacman_packages:
+      - zsh
+      - terminator
+      - jq
+      - yay
+      - bash-completion
+      - discord
+      - dmidecode
+      - dotnet-runtime
+      - dotnet-sdk
+      - flameshot
+      - fzf
+      - base-devel
+      - go
+      - helm
+      - htop
+      - iotop
+      - iperf
+      - kubectl
+      - kubectx
+      - mlocate
+      - ncdu
+      - nmap
+      - netcat
+      - npm
+      - nuget
+      - tcpdump
+      - virtualbox
+      - virtualbox-host-dkms
+      - vim
+      - wine
+      - wget
+      - docker
+      - cifs-utils
+      - docker-compose
+
+    aur_packages:
+      - visual-studio-code-bin
+      - google-chrome
+      - virtualbox-ext-oracle

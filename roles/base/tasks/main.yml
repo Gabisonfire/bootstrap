@@ -5,17 +5,6 @@
     mode: '0755'
   loop: "{{ create_dirs }}"
 
-- name: Installing PACMAN required packages
-  become: true
-  community.general.pacman:
-    name: "{{ item }}"
-    update_cache: true
-  loop: "{{ pacman_packages }}"
-  retries: 3
-  delay: 3
-  register: result
-  until: result is not failed
-
 - name: Installing AUR required packages
   kewlfft.aur.aur:
     name: "{{ item }}"
@@ -31,7 +20,7 @@
 
 - name: Write ssh/github key
   ansible.builtin.copy:
-    content: "{{ lookup('hashi_vault', 'secret=kv/data/gab-ssh-key:key') }}"
+    content: "{{ lookup('hashi_vault', 'secret={{ vault_key_path }}') }}"
     dest: "/home/{{ linux_user }}/.ssh/id_rsa"
     owner: "{{ linux_user }}"
     group: "{{ linux_user }}"
