@@ -7,7 +7,6 @@
   connection: local
   roles:
     - base
-    - mounts
     - configs
   vars:
     vault_key_path: kv/data/work_deploy_key:ssh-key
@@ -21,13 +20,16 @@
 
     # Sources are relative to the config_repo_dest (will be appended automatically)
     configs:
-      - src: .zshrc
+      - src: .zshrc-work
         dst: "/home/{{ linux_user }}/.zshrc"
+      - src: starship.toml
+        dst: "/home/{{ linux_user }}/.config/starship.toml"
       - src: terminator.config
         dst: "/home/{{ linux_user }}/.config/terminator/config"
 
     pacman_packages:
       - zsh
+      - starship
       - terminator
       - jq
       - yay
