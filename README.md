@@ -5,7 +5,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Gabisonfire/bootstrap/ma
 ## Manual
 1. Clone this
 2. `ansible-galaxy collection install -r requirements.yml`
-3. `export VAULT_SKIP_VERIFY=true`
-4. `export VAULT_ADDR=https://vault.k8s.luna.net`
-5. `export VAULT_TOKEN=$(vault login -token-only -method=ldap username=gabisonfire)`
-6. `ansible-playbook -i inventory install.yml`
+3. `export AWS_ACCESS_KEY_ID=AKIAUYAJUHJKAOMLKM5Y`
+4. `export AWS_REGION=ca-central-1`
+5. `AWS_SECRET_ACCESS_KEY=my_secret_key ansible-playbook -i inventory install.yml`

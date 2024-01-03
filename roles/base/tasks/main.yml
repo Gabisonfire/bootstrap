@@ -30,8 +30,10 @@
     mode: '0700'
 
 - name: Write ssh/github key
+  tags:
+  - keys
   ansible.builtin.copy:
-    content: "{{ lookup('hashi_vault', 'secret={{ vault_key_path }}') }}"
+    content: "{{ lookup('amazon.aws.aws_ssm', 'gab-ssh-key') }}"
     dest: "/home/{{ linux_user }}/.ssh/id_rsa"
     owner: "{{ linux_user }}"
     group: "{{ linux_user }}"

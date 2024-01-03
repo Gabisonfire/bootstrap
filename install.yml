@@ -10,7 +10,6 @@
     - mounts
     - configs
   vars:
-      vault_key_path: kv/data/gab-ssh-key:key
       linux_user: gabisonfire
       config_repo: git@github.com:Gabisonfire/configs.git
       config_repo_dest: "/home/{{ linux_user }}/Documents/configs"

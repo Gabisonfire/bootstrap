@@ -9,11 +9,11 @@
 
 - name: Get cifs username from vault
   set_fact:
-    cifs_un: "{{ lookup('hashi_vault', 'secret=kv/data/cifs-gab:username') }}"
+    cifs_un: "gabisonfire"
 
 - name: Get cifs pw from vault
   set_fact:
-    cifs_pw: "{{ lookup('hashi_vault', 'secret=kv/data/cifs-gab:password') }}"
+    cifs_pw: "{{ lookup('amazon.aws.aws_ssm', 'cifs-gab') }}"
 
 - name: Write cifs credentials file
   become: true
