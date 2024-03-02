@@ -18,9 +18,3 @@
   with_items:
     - "{{ configs }}"
   tags: links
-
-- name: Restore Cinnamon's config
-  ansible.builtin.shell:
-    cmd: dconf load /org/cinnamon/ < "{{ config_repo_dest }}"/cinnamon
-  when: cinnamon
-  tags: cinnamon

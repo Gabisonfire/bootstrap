@@ -1,13 +1,9 @@
 - name: Base
-  environment:
-    VAULT_ADDR: "https://vault.k8s.luna.net"
-    VAULT_SKIP_VERIFY: true
   hosts:
     - localhost
   connection: local
   roles:
     - base
-    - mounts
     - configs
   vars:
       linux_user: gabisonfire
@@ -22,8 +18,8 @@
       configs:
         - src: .zshrc
           dst: "/home/{{ linux_user }}/.zshrc"
-        - src: "Thunar"
-          dst: "/home/{{ linux_user }}/.config/Thunar"
+        - src: starship.toml
+          dst: "/home/{{ linux_user }}/.config/starship.toml"
         - src: ssh-config
           dst: "/home/{{ linux_user }}/.ssh/config"
         - src: terminator.config
@@ -41,7 +37,6 @@
         - dotnet-sdk
         - flameshot
         - fzf
-        - gamemode
         - base-devel
         - gimp
         - go
@@ -58,7 +53,6 @@
         - npm
         - nuget
         - obs-studio
-        - numlockx
         - peek
         - remmina
         - tcpdump
@@ -69,19 +63,12 @@
         - wget
         - docker
         - cifs-utils
-        - nvidia
         - docker-compose
-        - 
+        - starship
+        - firefox
 
       aur_packages:
         - visual-studio-code-bin
         - lutris
-        - bottles
-        - google-chrome
-        - itch
-        - razergenie
-        - remmina-plugin-rdesktop
-        - teamviewer
-        - unityhub
         - virtualbox-ext-oracle
-        - vibrantlinux
+        - autojump

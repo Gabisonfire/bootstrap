@@ -1,7 +1,4 @@
 - name: Base
-  environment:
-    VAULT_ADDR: "https://vault.k8s.luna.net"
-    VAULT_SKIP_VERIFY: true
   hosts:
     - localhost
   connection: local
@@ -21,7 +18,7 @@
     configs:
       - src: .zshrc-work
         dst: "/home/{{ linux_user }}/.zshrc"
-      - src: starship.toml
+      - src: starship-work.toml
         dst: "/home/{{ linux_user }}/.config/starship.toml"
       - src: terminator.config
         dst: "/home/{{ linux_user }}/.config/terminator/config"
@@ -62,8 +59,10 @@
       - docker
       - cifs-utils
       - docker-compose
+      - starship
 
     aur_packages:
       - visual-studio-code-bin
       - google-chrome
       - virtualbox-ext-oracle
+      - autojump

@@ -58,6 +58,7 @@
     cmd: /tmp/ohmyzsh.sh
     creates: ~/.oh-my-zsh
   tags: ohmyzsh
+  ignore_errors: true
 
 - name: Change shell to zsh
   become: true
